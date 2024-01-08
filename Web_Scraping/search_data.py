@@ -4,7 +4,9 @@ from bs4 import BeautifulSoup
 import re
 
 html = urlopen(
-    "https://www.didigalvao.com.br/cotacao-da-cebola-nesta-sexta-05-em-cabrobo/")
+    "https://www.didigalvao.com.br/cotacao-da-cebola-nesta-sexta-05-em-cabrobo/"
+    # "https://www.didigalvao.com.br/cotacao-da-cebola-nesta-sexta-20-no-mercado-do-produtor-em-juazeiro-ba-veja-tambem-outros-produtos/"
+)
 bs = BeautifulSoup(html, "html.parser")
 
 text = bs.find('div', {'class': 'td-post-content'}).get_text()

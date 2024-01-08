@@ -1,10 +1,10 @@
 # A first part of a web crowler
 
-from urllib.request import urlopen
+from urllib import request
 from urllib.error import HTTPError
 from bs4 import BeautifulSoup
 
-# We scraping the web blog of a jornalist of the Cabrobó city.
+# We scraping the web blog of a jornalist of the Cabrobo city.
 # The Blog report of the onion price by week in the ceasa City.
 # Get the title of the onion report in the fisrt page of cotation onion.
 # We have 32 cotaion onion pages. Get the titles of the first page.
@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 def get_onion_links(url):
 
     try:
-        html = urlopen(url)
+        html = request.urlopen(url)
     except HTTPError as e:
         print(e)
     else:
