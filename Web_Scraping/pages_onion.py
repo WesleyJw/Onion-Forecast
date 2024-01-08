@@ -32,21 +32,28 @@ def get_page_url(url):
 
 def get_url_cotation(url):
     # Get the cotations links
-    bs = html_parser(url)
-    content = bs.find_all(
-        'h3', {'class': 'entry-title td-module-title'})
-    url_cotations = [url.find('a', href=True)['href']
-                     for url in content]
-    return url_cotations
-
-
-def get_cotation(url):
-    bs = html_parser(url)
     try:
-        content = bs.find('div', {'class': 'td-post-content'}).find_all('p')[2]
-        print(content)
+        bs = html_parser(url)
+        content = bs.find_all(
+            'h3', {'class': 'entry-title td-module-title'})
+        url_cotations = [url.find('a', href=True)['href']
+                         for url in content]
+        return url_cotations
     except Exception as e:
         print(e)
+        return None
+
+
+def get_cotation_text(url):
+    bs = html_parser(url)
+    try:
+        content = bs.find('div', {'class': 'td-post-content'}).get_text()
+        metadata = bs.find(
+            'span', {'class': 'td-post-date'}).get_text()
+        return content, metadata
+    except Exception as e:
+        print(e)
+        return None
 
 
 if __name__ == '__main__':
@@ -54,7 +61,10 @@ if __name__ == '__main__':
     while url:
         print(url)
         cotations_links = get_url_cotation(url)
+        # print(cotations_links)
         for link in cotations_links:
-            get_cotation(link)
+            text, metadata = get_cotation_text(link)
+            print(metadata)
+            break
         url = get_page_url(url)
         break
