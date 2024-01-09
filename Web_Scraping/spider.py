@@ -1,5 +1,6 @@
-from Web_Scraping import pages_onion as po
-from Web_Scraping import search_price as sp
+import pages_onion as po
+import search_price as sp
+import save_json as sj
 
 url = "https://www.didigalvao.com.br/page/1/?s=cota%C3%A7%C3%A3o+cebola"
 while url:
@@ -11,7 +12,10 @@ while url:
         print(len(text))
         if text:
             result = sp.parse_onion_prices(text, metadata)
+            if result is None:
+                break
+            else:
+                sj.price_to_json(result)
             print(result)
     url = po.get_page_url(url)
     print(url)
-    break
