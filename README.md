@@ -15,3 +15,7 @@ The onion price forecast project provides an in-depth view of the historical beh
 ## Web Scraping
 
 ![](ProjectArchitecture/web_scraping.png)
+
+## Kubernetes Infrastructure
+
+![](ProjectArchitecture/kubernetes_infrastructure.png)
