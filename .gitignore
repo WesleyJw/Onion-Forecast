@@ -2,6 +2,7 @@ __pycache__/
 
 #venv
 .onion_forecast/
+.env
 
 #Directries
 Data/
