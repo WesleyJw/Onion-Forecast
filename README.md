@@ -19,3 +19,7 @@ The onion price forecast project provides an in-depth view of the historical beh
 ## Kubernetes Infrastructure
 
 ![](ProjectArchitecture/kubernetes_infrastructure.png)
+
+## Data Engineering Architecture
+
+![](ProjectArchitecture/data_engineering.png)
