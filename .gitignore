@@ -4,5 +4,6 @@ __pycache__/
 .onion_forecast/
 .env
 
-#Directries
+#Directories
 Data/
+Data_Engineering/logs/
