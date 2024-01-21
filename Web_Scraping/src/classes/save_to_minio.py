@@ -21,7 +21,11 @@ class MinioSaveContent:
 
     def send_txt(self):
         onion_text = self.search_content.get_quotation_text()
-        # The destination bucket and filename on the MinIO server
+        print(onion_text)
+
+
+""" 
+    # The destination bucket and filename on the MinIO server
     bucket_name = "bronze"
 
     # Make the bucket if it doesn't exist.
@@ -30,11 +34,13 @@ class MinioSaveContent:
         client.make_bucket(bucket_name)
         print("Created bucket", bucket_name)
     else:
-        print("Bucket", bucket_name, "already exists")
+        print("Bucket", bucket_name, "already exists")"""
 
 
 if __name__ == "__main__":
+    url = "https://www.didigalvao.com.br/cotacao-da-cebola-no-mercado-do-produtor-de-juazeiro-ba-nesta-quinta-feira-13/"
+    minio_send = MinioSaveContent(url)
     try:
-        main()
+        minio_send.send_txt()
     except S3Error as exc:
         print("error occurred.", exc)

@@ -36,11 +36,23 @@ class SearchContent:
             print(e)
             return None
 
+    def write_text(self):
+        path = "/home/wesley/MEGAsync/PortfolioGithub/Onion-Forecast/Web_Scraping/temp/txt/"
+        text_content = self.get_quotation_text()
+        text_metadata = self.get_metadata()
+
+        file_name = f"text_quotation_{text_metadata.replace(' ', '_')}.txt"
+        if text_content is not None:
+            with open(path + file_name, "w") as f:
+                f.write(text_content)
+        else:
+            print("The content is empty!")
+
 
 if __name__ == "__main__":
     url = "https://www.didigalvao.com.br/cotacao-da-cebola-no-mercado-do-produtor-de-juazeiro-ba-nesta-quinta-feira-13/"
-    url = "https://www.didigalvao.com.br/cotacao-da-cebola-nesta-sexta-05-em-cabrobo/"
+    # url = "https://www.didigalvao.com.br/cotacao-da-cebola-nesta-sexta-05-em-cabrobo/"
     search_content = SearchContent(url)
-    onion_price = search_content.get_quotation_img()
+    onion_price = search_content.write_text()
     # onion_price = re.sub('\n', '', onion_price)
     print(onion_price)
